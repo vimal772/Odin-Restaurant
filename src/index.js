@@ -1,1 +1,3 @@
-alert("Hello");
+import render from "./home.page.js";
+
+render();
