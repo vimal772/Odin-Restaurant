@@ -10,39 +10,18 @@ import fb from './asset/icons/facebook.svg';
 import insta from './asset/icons/instagram.svg';
 import uber from './asset/icons/uber.svg';
 import twitter from './asset/icons/twitter.svg';
-import github from './asset/icons/github.svg';
 
 function render() {
-    const header = document.createElement('header');
-    const headerName = document.createElement('div');
-    const name = document.createElement('h1');
-    const list = document.createElement('ul');
-    
-    for(let i=0;i<3;i++) {
-        const listItem = document.createElement('li');
-        listItem.classList.add('menu-item');
-        const textItem = ['HOME','MENU','CONTACT'];
-        listItem.innerText = textItem[i];
-        list.appendChild(listItem);
-    }
+    const container = document.querySelector('#container');
 
-    list.classList.add('menu');
-    headerName.classList.add('name');
-    header.classList.add('header');
-
-    name.innerText = "KANI TAVERN";
-    headerName.appendChild(name);
-    header.appendChild(headerName);
-    header.appendChild(list);
-
-    const container = document.createElement('div');
-    container.classList.add('container');
-    container.style.backgroundImage = `url('${noodle}')`;
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.style.backgroundImage = `url('${noodle}')`;
 
     const title = document.createElement('p');
     title.classList.add('invisiable-container');
     title.innerText = `YOU HAVE COME TO A RIGHT PLACE TO EXPERIENCE THE RICH TASTE OF FOOD`;
-    container.appendChild(title);
+    content.appendChild(title);
 
     const divWrap = document.createElement('div');
     const div = document.createElement('div');
@@ -99,30 +78,13 @@ function render() {
     support.appendChild(unOrderedList);
 
 
-    
-    const footer = document.createElement('footer');
-    footer.classList.add('footer');
-
-    const copyRight = document.createElement('div');
-    const copyRightTxt = document.createElement('p');
-    const copyRightLink = document.createElement('a');
-    copyRightLink.href = '#';
-    const copyRightImg = document.createElement('img');
-    
-    copyRightImg.src = github;
-    copyRightLink.appendChild(copyRightImg);
-    copyRightTxt.innerText = "Copy Right @2023 ";
-
-    copyRight.appendChild(copyRightTxt);
-    copyRight.appendChild(copyRightLink);
-
-    footer.appendChild(copyRight);
-
-    const elements = [header,container,divWrap,div2,support,footer];
+    const elements = [content,divWrap,div2,support];
 
     for (const element of elements) {
-        document.body.appendChild(element)
+        container.appendChild(element)
     }
+
+    document.body.appendChild(container);
 
     window.onscroll = function() {
         changeColorNavBar();
@@ -132,9 +94,7 @@ function render() {
     
     function changeColorNavBar() {
         const header = document.querySelector('.header');
-        const stickyOffset = 20; // Adjust this value to set the offset lower
-    
-        const sticky = header.offsetTop - stickyOffset;
+        const sticky = header.offsetTop;
         const currentScrollPosition = window.pageYOffset;
     
         if (currentScrollPosition >= sticky) {

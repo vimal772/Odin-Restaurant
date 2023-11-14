@@ -1,3 +1,3 @@
-import render from "./home.page.js";
+import loader from "./tabs.js";
 
-render();
+loader();
