@@ -8,7 +8,8 @@ function loadFooter() {
     const copyRight = document.createElement('div');
     const copyRightTxt = document.createElement('p');
     const copyRightLink = document.createElement('a');
-    copyRightLink.href = '#';
+    copyRightLink.setAttribute('target','_blank');
+    copyRightLink.href = 'https://github.com/vimal772';
     const copyRightImg = document.createElement('img');
     
     copyRightImg.src = github;

@@ -9,28 +9,25 @@ function loader() {
     loadHeader();
     homeRender();
     loadFooter();
+    
+    const home = document.querySelector('.HOME');
+    const menu = document.querySelector('.MENU');
+    const contact = document.querySelector('.CONTACT');
 
-    document.querySelector('.HOME').addEventListener('click',()=> {
+    home.onclick = function() {
         clearRender();
-
-        loadHeader();
         homeRender();
         loadFooter();
-    });
+    }
 
-
-    document.querySelector('.MENU').addEventListener('click',()=> {
+    menu.onclick = ()=> {
         clearRender();
-
-        loadHeader();
         menuRender();
         loadFooter();
-    });
+    }
 
-    document.querySelector('.CONTACT').addEventListener('click',()=> {
+    contact.addEventListener('click',()=> {
         clearRender();
-
-        loadHeader();
         contactRender();
         loadFooter();
     });
@@ -41,18 +38,10 @@ export default loader;
 
 function clearRender() {
     const container = document.querySelector('#container');
-    const header = document.querySelector('.header');
     const footer = document.querySelector('.footer');
+    footer.remove();
 
     while(container.firstChild){
         container.removeChild(container.firstChild);
-    }
-    
-    while(header.firstChild){
-        header.removeChild(header.firstChild)
-    }
-
-    while(footer.firstChild){
-        footer.removeChild(footer.firstChild)
     }
 }
