@@ -11,7 +11,7 @@ import insta from './asset/icons/instagram.svg';
 import uber from './asset/icons/uber.svg';
 import twitter from './asset/icons/twitter.svg';
 
-function render() {
+function homeRender() {
     const container = document.querySelector('#container');
 
     const content = document.createElement('div');
@@ -116,4 +116,4 @@ function render() {
 }
 
 
-export default render;
+export default homeRender;
